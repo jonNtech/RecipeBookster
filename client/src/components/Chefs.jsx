@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client';
 import ChefRow from './ChefRow';
-import {GET_CHEFS} from '../queries/chefsQueries';
+import {GET_CHEFS} from '../queries/chefQueries';
 import Spinner from './Spinner';
 
 

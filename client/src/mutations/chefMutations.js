@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-const Add_CHEF = gql`
+const ADD_CHEF = gql`
     mutation addChef($name: String!, $email: String!, $password: String!) {
         addChef(name: $name, email: $email, password: $password) {
             id
@@ -22,4 +22,4 @@ const DELETE_CHEF = gql`
     }
 `;
 
-export { Add_CHEF, DELETE_CHEF };
+export { ADD_CHEF, DELETE_CHEF };
