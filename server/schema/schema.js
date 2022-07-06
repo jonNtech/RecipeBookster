@@ -74,15 +74,15 @@ const RootQuery = new GraphQLObjectType({
 })
 
 //mutations
-const Mutation = new GraphQLObjectType({
+const mutation = new GraphQLObjectType({
     name: 'Mutation',
     fields: {
         addChef: {
             type: ChefType,
             args: {
-                name: { type: new GraphQLNonNull(GraphQLString) },
-                email: { type: new GraphQLNonNull(GraphQLString) },
-                phone: { type: new GraphQLNonNull(GraphQLString) }
+                name: { type: GraphQLNonNull(GraphQLString) },
+                email: { type: GraphQLNonNull(GraphQLString) },
+                phone: { type: GraphQLNonNull(GraphQLString) }
             },
             resolve(parent, args) {
                 let chef = new Chef({
@@ -112,11 +112,11 @@ const Mutation = new GraphQLObjectType({
         addRecipe: {
             type: RecipeType,
             args: {
-                name: { type: new GraphQLNonNull(GraphQLString) },
-                description: { type: new GraphQLNonNull(GraphQLString) },
-                ingredients: { type: new GraphQLNonNull(GraphQLString) },
-                steps: { type: new GraphQLNonNull(GraphQLString) },
-                chefId: { type: new GraphQLNonNull(GraphQLID) }
+                name: { type: GraphQLNonNull(GraphQLString) },
+                description: { type: GraphQLNonNull(GraphQLString) },
+                ingredients: { type: GraphQLNonNull(GraphQLString) },
+                steps: { type: GraphQLNonNull(GraphQLString) },
+                chefId: { type: GraphQLNonNull(GraphQLID) }
             },
             resolve(parent, args) {
                 let recipe = new Recipe({
@@ -133,7 +133,7 @@ const Mutation = new GraphQLObjectType({
         deleteRecipe: {
             type: RecipeType,
             args: {
-                id: { type: new GraphQLNonNull(GraphQLID) }
+                id: { type: GraphQLNonNull(GraphQLID) }
             },
             resolve(parent, args) {
                 return Recipe.findByIdAndRemove(args.id)
@@ -143,7 +143,7 @@ const Mutation = new GraphQLObjectType({
         updateRecipe: {
             type: RecipeType,
             args: {
-                id: { type: new GraphQLNonNull(GraphQLID) },
+                id: { type: GraphQLNonNull(GraphQLID) },
                 name: { type: GraphQLString },
                 description: { type: GraphQLString },
                 ingredients: { type: GraphQLString },
@@ -167,5 +167,5 @@ const Mutation = new GraphQLObjectType({
 
 module.exports = new GraphQLSchema({
     query: RootQuery,
-    mutation: Mutation
+    mutation
 })
