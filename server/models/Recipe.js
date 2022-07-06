@@ -26,7 +26,6 @@ const RecipeSchema = new mongoose.Schema({
     chefId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Chef',
-        required: true
     }
 })
 

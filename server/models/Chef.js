@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const ChelfSchema = new mongoose.Schema({
+const ChefSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -13,4 +13,4 @@ const ChelfSchema = new mongoose.Schema({
     },
 })
 
-module.exports = mongoose.model('Chef', ChelfSchema);
+module.exports = mongoose.model('Chef', ChefSchema);
